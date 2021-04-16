@@ -54,10 +54,12 @@ run_deploy_model = BashOperator(
     task_id='run_score_data',
     bash_command='echo "DEPLOYING MODEL....."',
     dag=dag,
+)
 
 run_get_data >> run_data_prep >> run_train_data >> run_score_data >> run_deploy_model
     
-    
+if __name__ == "__main__":
+    dag.cli()
     
     
 
