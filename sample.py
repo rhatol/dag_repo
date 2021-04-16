@@ -31,3 +31,36 @@ run_get_data = BashOperator(
 )
 
 run_init >> run_get_data
+
+run_data_prep = BashOperator(
+    task_id='run_data_prep',
+    bash_command='echo "PREPARING DATA....."',
+    dag=dag,
+)
+
+run_train_data = BashOperator(
+    task_id='run_train_aata',
+    bash_command='echo "TRAINING DATA....."',
+    dag=dag,
+)
+
+run_score_data = BashOperator(
+    task_id='run_score_data',
+    bash_command='echo "SCORE DATA....."',
+    dag=dag,
+)
+
+run_deploy_model = BashOperator(
+    task_id='run_score_data',
+    bash_command='echo "DEPLOYING MODEL....."',
+    dag=dag,
+
+run_get_data >> run_data_prep >> run_train_data >> run_score_data >> run_deploy_model
+    
+    
+    
+    
+
+
+
+
