@@ -51,7 +51,7 @@ run_score_data = BashOperator(
 )
 
 run_deploy_model = BashOperator(
-    task_id='run_score_data',
+    task_id='run_deploy_data',
     bash_command='echo "DEPLOYING MODEL....."',
     dag=dag,
 )
