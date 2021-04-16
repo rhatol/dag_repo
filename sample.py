@@ -39,7 +39,7 @@ run_data_prep = BashOperator(
 )
 
 run_train_data = BashOperator(
-    task_id='run_train_aata',
+    task_id='run_train_data',
     bash_command='echo "TRAINING DATA....."',
     dag=dag,
 )
@@ -60,9 +60,3 @@ run_get_data >> run_data_prep >> run_train_data >> run_score_data >> run_deploy_
     
 if __name__ == "__main__":
     dag.cli()
-    
-    
-
-
-
-
